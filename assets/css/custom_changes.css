@@ -1,0 +1,76 @@
+input[readonly].form-control.home-address {
+    border: 1px #fff solid !important;
+    border-left: 0!important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #e0421a;
+    border-color: #e0421a;
+    border-radius: 30px;
+}
+.btn-primary.active, .btn-primary:active, .btn-primary:hover, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #eb522c;
+    border-color: #f1562f;
+}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    border-color: #fff;
+    
+}
+.container, .container-fluid {
+    padding: 15px 20px;
+}
+.rest-categories {
+    max-width: 450px;
+    margin: auto;
+    display: flex;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    color: #000;
+    font-weight: 600;
+}
+.categories-text{
+    color: #000;
+    text-decoration: none;
+}
+.rest-categories .img-c{
+    width: 60px;
+}
+.rest-categories .categories-m{
+    margin: auto;
+    max-width: 75px;
+    text-align: center;
+}
+@media (max-width: 750px){
+    .rest-categories {
+        display: none;
+    }
+    .rest-categories .categories-m{
+        margin: auto;
+        display: none;
+    }
+  }
+
+  
+/* Restaurant List Margin */
+@media (min-width: 1551px){
+    .container-fluid{
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1280px;
+    }
+}
+/* Restaurant List Margin */
+@media (max-width: 500px){
+    .welcome{
+      height: 500px !important;
+    }
+  }
+
+@media (min-width: 992px){
+.form-group {
+    margin-left: 0;
+    padding-left: 0;
+}
+}

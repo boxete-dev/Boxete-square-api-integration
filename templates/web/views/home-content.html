@@ -1,0 +1,57 @@
+<!--<div class="container-fluid section full">
+ <div class="row full">
+      <div class="col-md-7 col-sm-6 left">
+        <h2 class="title">
+          {{translate('FRONT_VISUALS_AMAZING_APPS_HEADING')}}
+        </h2>
+        <p data-ng-bind-html="translate('FRONT_VISUALS_AMAZING_APPS_DESCRIPTION')"></p>
+      </div>
+      <div class="col-md-5 col-sm-6 right">
+        <img data-ng-src="{{rootTheme}}/img/home-phone-app.png">
+      </div>
+    </div>
+  </div>-->
+  <p id="dailycontents"></p>
+  <div class="container section">
+    <!--<div class="row full">-->
+      <div class="row">
+        <div class="col col-md-5 " style="margin: auto;">
+          <h1 style="font-weight: 800;">Every Flavor Welcome.</h1>
+          <p>From your neighborhood K-Food spot to the burger and fries you crave, <br/>choose from local and national favorites across the Atlanta.</p>
+        </div>
+        <div class="col col-md-7" style="float: right;">
+          <img data-ng-src="https://boxetekitchen.tryordering.com/templates/web/img/custom/home-banner1.jpeg" width="100%">
+            
+        </div>
+      </div>
+    <!--</div>-->
+  </div>
+  <div>
+   
+
+    <script>
+    let day;
+    switch (new Date().getDay()) {
+      case 0:
+        day = "<div class='container section'><!--<div class='row full'>--><div class='row'><div class='col col-md-7'><a href = 'https://boxetekitchen.tryordering.com/manvschicken_1363e22d50'><img data-ng-src='https://boxetekitchen.tryordering.com/templates/web/img/custom/home-banner.jpeg' width='100%'></a></div><div class='col col-md-5' style='margin: auto;'><h1 style='font-weight: 800;'>It’s all about Sunday.<br/>All in one app.</h1><p>Discover local, on-demand delivery or Pickup from restaurants, <br/>nearby grocery and convenience stores, and more.</p></div></div><!--</div>--></div>";
+        break;
+      case 1:
+        day = "<div class='container section'><!--<div class='row full'>--><div class='row'><div class='col col-md-7'><a href = 'https://boxetekitchen.tryordering.com/abiko'><img data-ng-src='https://boxetekitchen.tryordering.com/templates/web/img/custom/home-banner.jpeg' width='100%'></a></div><div class='col col-md-5' style='margin: auto;'><h1 style='font-weight: 800;'>It’s all about Monday.<br/>All in one app.</h1><p>Discover local, on-demand delivery or Pickup from restaurants, <br/>nearby grocery and convenience stores, and more.</p></div></div><!--</div>--></div>";
+        break;
+      case 2:
+        day = "<div class='container section'><!--<div class='row full'>--><div class='row'><div class='col col-md-7'><a href='https://boxetekitchen.tryordering.com/yooboo'><img data-ng-src='https://boxetekitchen.tryordering.com/templates/web/img/custom/home-banner.jpeg' width='100%'></a></div><div class='col col-md-5' style='margin: auto;'><h1 style='font-weight: 800;'>It’s all about Tuesday.<br/>All in one app.</h1><p>Discover local, on-demand delivery or Pickup from restaurants, <br/>nearby grocery and convenience stores, and more.</p></div></div><!--</div>--></div>";
+        break;
+      case 3:
+        day = "<div class='container section'><!--<div class='row full'>--><div class='row'><div class='col col-md-7'><a href = 'https://boxetekitchen.tryordering.com/manvschicken_1363e22d50'><img data-ng-src='https://boxetekitchen.tryordering.com/templates/web/img/custom/home-banner.jpeg' width='100%'></a></div><div class='col col-md-5' style='margin: auto;'><h1 style='font-weight: 800;'>It’s all about Wednesday.<br/>All in one app.</h1><p>Discover local, on-demand delivery or Pickup from restaurants, <br/>nearby grocery and convenience stores, and more.</p></div></div><!--</div>--></div>";
+        break;
+      case 4:
+        day = "<div class='container section'><!--<div class='row full'>--><div class='row'><div class='col col-md-7'><a href = 'https://boxetekitchen.tryordering.com/abiko'><img data-ng-src='https://boxetekitchen.tryordering.com/templates/web/img/custom/home-banner.jpeg' width='100%'></a></div><div class='col col-md-5' style='margin: auto;'><h1 style='font-weight: 800;'>It’s all about Thursday.<br/>All in one app.</h1><p>Discover local, on-demand delivery or Pickup from restaurants, <br/>nearby grocery and convenience stores, and more.</p></div></div><!--</div>--></div>";
+        break;
+      case 5:
+        day = "<div class='container section'><!--<div class='row full'>--><div class='row'><div class='col col-md-7'><a href = 'https://boxetekitchen.tryordering.com/yooboo'><img data-ng-src='https://boxetekitchen.tryordering.com/templates/web/img/custom/home-banner.jpeg' width='100%'></a></div><div class='col col-md-5' style='margin: auto;'><h1 style='font-weight: 800;'>It’s all about Friday.<br/>All in one app.</h1><p>Discover local, on-demand delivery or Pickup from restaurants, <br/>nearby grocery and convenience stores, and more.</p></div></div><!--</div>--></div>";
+        break;
+      case  6:
+        day = "<div class='container section'><!--<div class='row full'>--><div class='row'><div class='col col-md-7'><a href = 'https://boxetekitchen.tryordering.com/manvschicken_1363e22d50'><img data-ng-src='https://boxetekitchen.tryordering.com/templates/web/img/custom/home-banner.jpeg' width='100%'></a></div><div class='col col-md-5' style='margin: auto;'><h1 style='font-weight: 800;'>It’s all about Saturday.<br/>All in one app.</h1><p>Discover local, on-demand delivery or Pickup from restaurants, <br/>nearby grocery and convenience stores, and more.</p></div></div><!--</div>--></div>";
+    }
+    document.getElementById("dailycontents").innerHTML = day;
+    </script>
