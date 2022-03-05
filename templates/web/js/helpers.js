@@ -3654,11 +3654,19 @@ $scope.refreshCartData = function () {
 			      } 
 
 				//$scope.cart_data.driver_tip = ($scope.order.type == 1) ? $rootScope.Order.roundPrice((subtotal-$scope.cart_data.discount)*$scope.order.driver_tip/100) : 0;
-				if(j==0){
-          $scope.mcartdata1[j].driver_tip = ($scope.order.type == 1) ? $rootScope.Order.roundPrice((subtotal)*$scope.order.driver_tip/100) : 0;
-        }else{
+				// if(j==0){
+        if ($scope.order.driver_tip != -1) {
+          $scope.mcartdata1[j].driver_tip = ($scope.order.type == 1) ? $rootScope.Order.roundPrice((subtotal) * $scope.order.driver_tip / 100) : 0;
+        }
+        else if ($scope.order.driver_tip_amount) {
+          $scope.mcartdata1[j].driver_tip = ($scope.order.type == 1) ? $rootScope.Order.roundPrice($scope.order.driver_tip_amount) : 0;
+        }
+        else { 
           $scope.mcartdata1[j].driver_tip = 0;
         }
+        // }else{
+        //   $scope.mcartdata1[j].driver_tip = 0;
+        // }
         
         
         $scope.cart_data.total = $scope.cart_data.total + subtotal + tax_new + service_feenew+$scope.mcartdata1[j].driver_tip;

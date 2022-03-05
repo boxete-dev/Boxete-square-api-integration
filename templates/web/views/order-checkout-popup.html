@@ -124,14 +124,17 @@
           <div class="col-sm-9">
             <div class="diver-type checkout" id="driver-tip">
                 <div class="button-bar border-none-b" >
-                    <ion-radio name="driver_tip" data-ng-repeat="driver_tip in driver_tips | orderBy:'value*1'"
+                    <ion-radio name="driver_tip" data-ng-repeat="driver_tip in driver_tips"
                                data-ng-value="driver_tip.value"
                                data-ng-model="order.driver_tip" data-ng-click="refreshCartData()" class="h-radio-bar">
                                <span class="float-left dynamic-radio"></span>
                                <span class="text-radio">{{driver_tip.text}}</span>
                     </ion-radio>
                 </div>
-
+                <div class="flexContainer discount-amount" data-ng-if="order.driver_tip==-1">
+                  <span>$</span>
+                  <input type="text" id="cutom_tip" class="form-control" data-ng-model="order.driver_tip_amount" data-ng-change="refreshCartData()" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46)">
+                </div>
                 <div class="color-font-placeholder pd-top-4">{{ translate('MOBILE_FRONT_GOES_TO_YOUR_DRIVER') }}</div>
             </div>
           </div>
@@ -225,7 +228,7 @@
               <td>{{parsePrice(mcart.delivery_price)}}</td>
             </tr>
             <tr class="fees" data-ng-if="checkoutfields.driver_tip.enabled && order.type == 1" >
-              <td colspan="3">{{ translate('MOBILE_FRONT_DRIVER_TIP') }} ({{order.driver_tip}}%)</td>
+              <td colspan="3">{{ translate('MOBILE_FRONT_DRIVER_TIP') }} <span data-ng-if="order.driver_tip!=-1" >({{order.driver_tip}}%)</span></td>
               <td>{{ parsePrice(mcart.driver_tip) }}</td>
             </tr>
             <tr class="fees" data-ng-if="business.service_fee != 0">
