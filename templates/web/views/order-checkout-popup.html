@@ -227,8 +227,8 @@
               <td colspan="3">{{ translate('MOBILE_CHECKOUT_DELIVERY_FEE') }}</td>
               <td>{{parsePrice(mcart.delivery_price)}}</td>
             </tr>
-            <tr class="fees" data-ng-if="checkoutfields.driver_tip.enabled && order.type == 1" >
-              <td colspan="3">{{ translate('MOBILE_FRONT_DRIVER_TIP') }} <span data-ng-if="order.driver_tip!=-1" >({{order.driver_tip}}%)</span></td>
+            <tr class="fees" data-ng-if="checkoutfields.driver_tip.enabled && order.type == 1 && order.driver_tip!=-1">
+              <td colspan="3">{{ translate('MOBILE_FRONT_DRIVER_TIP') }} ({{order.driver_tip}}%)</td>
               <td>{{ parsePrice(mcart.driver_tip) }}</td>
             </tr>
             <tr class="fees" data-ng-if="business.service_fee != 0">
@@ -289,6 +289,15 @@
               <td>
               </td>
               <td>{{parsePrice( sumDelv )}}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                {{ translate('DRIVER_TIP_TOTAL') }}
+              </td>
+              <td>
+              </td>
+              <td>{{parsePrice( sumTip )}}</td>
             </tr>
             </table> 
          

@@ -3656,10 +3656,8 @@ $scope.refreshCartData = function () {
 				//$scope.cart_data.driver_tip = ($scope.order.type == 1) ? $rootScope.Order.roundPrice((subtotal-$scope.cart_data.discount)*$scope.order.driver_tip/100) : 0;
 				// if(j==0){
         if ($scope.order.driver_tip != -1) {
+          $scope.order.driver_tip_amount = '';
           $scope.mcartdata1[j].driver_tip = ($scope.order.type == 1) ? $rootScope.Order.roundPrice((subtotal) * $scope.order.driver_tip / 100) : 0;
-        }
-        else if ($scope.order.driver_tip_amount) {
-          $scope.mcartdata1[j].driver_tip = ($scope.order.type == 1) ? $rootScope.Order.roundPrice($scope.order.driver_tip_amount) : 0;
         }
         else { 
           $scope.mcartdata1[j].driver_tip = 0;
@@ -3669,7 +3667,7 @@ $scope.refreshCartData = function () {
         // }
         
         
-        $scope.cart_data.total = $scope.cart_data.total + subtotal + tax_new + service_feenew+$scope.mcartdata1[j].driver_tip;
+        $scope.cart_data.total = $scope.cart_data.total + subtotal + tax_new + service_feenew + $scope.mcartdata1[j].driver_tip;
 				$scope.mcartdata1[j].totalPrice = $scope.cart_data.total
 				$scope.allTotal = $scope.allTotal + $scope.cart_data.total
         //$scope.mcartdata1[j].total -= $scope.mcartdata1[j].discount;
@@ -3683,8 +3681,13 @@ $scope.refreshCartData = function () {
 							
 					}
 					
-		
-    $scope.sumDelv =  $scope.sumdelvPartner.reduce(function(a, b) {
+      if ($scope.order.driver_tip == -1 && $scope.order.driver_tip_amount) { 
+        // add driver tip in total for other option.
+        $scope.allTotal = $scope.allTotal + $rootScope.Order.roundPrice(($scope.order.driver_tip_amount));
+      }
+      $scope.sumTip = $scope.order.driver_tip != -1 ? $scope.mcartdata1.map(p=>p.driver_tip).reduce(function (a, b) { return a + b; }, 0) : $scope.order.driver_tip_amount ? $scope.order.driver_tip_amount :0;
+  
+      $scope.sumDelv =  $scope.sumdelvPartner.reduce(function(a, b) {
 			////console\.log(a+', '+ b)
 			 return a + b; }, 0);
        $scope.sumDelv2 =  $scope.checkPartner.reduce(function(a, b) {
