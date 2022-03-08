@@ -6664,3 +6664,11 @@ width:auto !important;
 
   }
 }
+.discount-amount span{
+    position: relative;
+    left: 24px;
+    top: 10px;
+}
+.discount-amount #cutom_tip{
+  padding-left: 30px;
+}
