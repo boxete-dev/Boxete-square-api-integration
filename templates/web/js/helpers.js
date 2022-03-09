@@ -4129,7 +4129,7 @@ $scope.refreshCartData = function () {
       paymethod_id: $scope.order.paymethod.id,
       business_id: business.id,
       delivery_type: $scope.order.type,
-      driver_tip: $scope.order.driver_tip,
+      driver_tip: $scope.order.driver_tip ==-1 ? 0 : $scope.order.driver_tip,
       pay_data: $scope.order.pay_data,
       delivery_zone_id: business.delivery_zone,
       delivery_datetime: delivery_datetime,
@@ -4294,7 +4294,12 @@ $scope.refreshCartData = function () {
     }
     order.customer = JSON.stringify(buyer);
     //console.log(business.driver_tip)
-    order.custom_trip = business.driver_tip?business.driver_tip:0;
+    if ($scope.order.driver_tip == -1 && $rootScope.Order.roundPrice($scope.order.driver_tip_amount)>0) {
+      order.custom_trip = $rootScope.Order.roundPrice($scope.order.driver_tip_amount) / $scope.mcartdata1.length;
+    }
+    else { 
+      order.custom_trip = business.driver_tip?business.driver_tip:0;
+    }
     //console.log(business.delivery_price)
     order.custom_delivery_price = business.delivery_price?business.delivery_price:0;
     order.partner_id = $scope.business.partner_id?$scope.business.partner_id:0;
