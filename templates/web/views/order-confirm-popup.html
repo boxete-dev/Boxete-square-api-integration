@@ -280,6 +280,10 @@
           <td>{{ translate('MOBILE_FRONT_DRIVER_TIP') }} ({{order.driver_tip}}%)</td>
           <td>{{parsePrice(order.custom_trip)}}</td>
         </tr>
+        <tr data-ng-if="(order.delivery_type == 1 && order.driver_tip == 0 && order.custom_trip>0)">
+          <td>{{ translate('MOBILE_FRONT_DRIVER_TIP') }}</td>
+          <td>{{parsePrice(order.custom_trip)}}</td>
+        </tr>
         <tr data-ng-if="order.service_fee != 0">
           <td>{{ translate('SERVICE_FEE_V2') }} ({{ order.service_fee}}%)</td>
           <td>{{parsePrice(Order.getServiceFee(order))}}</td>
